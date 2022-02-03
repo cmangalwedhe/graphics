@@ -11,20 +11,18 @@ public class Picture extends JPanel {
 
         // call methods
         drawRoad(g, new int[]{0, 400, 800}, new int[]{600, 0, 600});
+        drawGround(g, new int[] {0, 400, 0}, new int[] {600, 0, 0});
+        drawGround(g, new int[] {800, 400, 800}, new int[] {600, 0, 0});
         drawRamp(g, new int[]{548, 100, 518, 50});
-        //drawRamp(g, 518, 50);
         drawRoadDivider(g);
         drawRoadSign(g);
 
     }
 
     public void drawRoad(Graphics g, int[] xPts, int[] yPts) {
-        /**
-         * @param Graphics g: a graphics reference from the container
-         */
 
         g.setColor(new Color(79, 78, 78));
-        
+
 
         Polygon mainRoad = new Polygon(xPts, yPts, 3);
         g.fillPolygon(mainRoad);
@@ -47,8 +45,14 @@ public class Picture extends JPanel {
         }
     }
 
-    public void drawGround(Graphics g) {
+    public void drawGround(Graphics g, int[] xPos, int[] yPos) {
+        g.setColor(new Color(152, 182, 142));
 
+        // int[] xPos = {0, 400, 0};
+        // int[] yPos = {600, 0, 0};
+
+        Polygon ground = new Polygon(xPos, yPos, 3);
+        g.fillPolygon(ground);
     }
 
     public void drawRoadSign(Graphics g) {
@@ -83,7 +87,6 @@ public class Picture extends JPanel {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Picture component = new Picture();
-        component.setBackground(new Color(241, 205, 178));
         component.setPreferredSize(new Dimension(800, 600));
 
         frame.add(component);
