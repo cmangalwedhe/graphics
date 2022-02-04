@@ -44,7 +44,12 @@ public class Picture extends JPanel {
 
     public void drawRamp(Graphics g) {
         // draws exit 12b ramp
-        
+        g.setColor(roadColor);
+        g.fillOval(410, 40, 400, 125);
+
+        // cover green oval to cover gray oval for ramp
+        g.setColor(groundColor);
+        g.fillOval(480, 95, 350, 80);
     }
 
     public void drawGround(Graphics g, int[] xPos, int[] yPos) {
@@ -91,9 +96,9 @@ public class Picture extends JPanel {
 
 
     public static void main(String[] args) {
-        // basic frame config
+        // basic frame configuration
         JFrame frame = new JFrame();
-        frame.setTitle("Picture Project: Highway Chinmay Mangalwedhe Allen Romo Braeden Drosche");
+        frame.setTitle("Picture Project: Highway - Chinmay Mangalwedhe, Allen Romo, and Braeden Drosche");
         frame.setVisible(true);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
