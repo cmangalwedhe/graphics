@@ -14,9 +14,9 @@ public class Picture extends JPanel {
         drawRoad(g, new int[]{0, 400, 800}, new int[]{600, 0, 600});
         drawGround(g, new int[] {0, 400, 0}, new int[] {600, 0, 0});
         drawGround(g, new int[] {800, 400, 800}, new int[] {600, 0, 0});
-        drawRamp(g, new int[]{548, 100, 518, 50});
         drawRoadDivider(g);
         drawRoadSign(g);
+        drawRamp(g);
         drawSun(g);
 
     }
@@ -38,8 +38,8 @@ public class Picture extends JPanel {
         }
     }
 
-    public void drawRamp(Graphics g, int[] coordinates) {
-        Polygon ramp = new Polygon();
+    public void drawRamp(Graphics g) {
+        g.drawRect(400, 600, 20, 20);
     }
 
     public void drawGround(Graphics g, int[] xPos, int[] yPos) {
@@ -86,18 +86,22 @@ public class Picture extends JPanel {
 
 
     public static void main(String[] args) {
+        // basic frame config
         JFrame frame = new JFrame();
         frame.setTitle("Picture Project: Highway Chinmay Mangalwedhe Allen Romo Braeden Drosche");
         frame.setVisible(true);
-        //frame.setResizable(false);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        // creates component
         Picture component = new Picture();
         component.setPreferredSize(new Dimension(800, 600));
 
+        // adds component to frame and packs it
         frame.add(component);
-
         frame.pack();
-        frame.setLocationRelativeTo(null); // centers the frame
+
+        // centers the frame
+        frame.setLocationRelativeTo(null);
     }
 }
