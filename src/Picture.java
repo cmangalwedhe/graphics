@@ -1,12 +1,16 @@
 /**
  * @author Chinmay Mangalwedhe, Allen Romo, Braeden Drosche
- *
+ * @version v1.2
  */
 
 import java.awt.*;
 import javax.swing.*;
 
 public class Picture extends JPanel {
+
+    private final static Color groundColor = new Color(152, 182, 142);
+    private final static Color roadColor = new Color(79, 78, 78);
+
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
@@ -23,7 +27,7 @@ public class Picture extends JPanel {
 
     public void drawRoad(Graphics g, int[] xPts, int[] yPts) {
 
-        g.setColor(new Color(79, 78, 78));
+        g.setColor(roadColor);
 
 
         Polygon mainRoad = new Polygon(xPts, yPts, 3);
@@ -39,12 +43,13 @@ public class Picture extends JPanel {
     }
 
     public void drawRamp(Graphics g) {
-        g.drawRect(400, 600, 20, 20);
+        // draws exit 12b ramp
+        
     }
 
     public void drawGround(Graphics g, int[] xPos, int[] yPos) {
         // draws remaining shapes as the color of the ground
-        g.setColor(new Color(152, 182, 142));
+        g.setColor(groundColor);
 
         Polygon ground = new Polygon(xPos, yPos, 3);
         g.fillPolygon(ground);
