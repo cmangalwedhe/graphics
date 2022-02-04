@@ -1,5 +1,6 @@
 /**
  * @author Chinmay Mangalwedhe, Allen Romo, Braeden Drosche
+ *
  */
 
 import java.awt.*;
@@ -16,6 +17,7 @@ public class Picture extends JPanel {
         drawRamp(g, new int[]{548, 100, 518, 50});
         drawRoadDivider(g);
         drawRoadSign(g);
+        drawSun(g);
 
     }
 
@@ -37,19 +39,12 @@ public class Picture extends JPanel {
     }
 
     public void drawRamp(Graphics g, int[] coordinates) {
-        // draws ramp for the highway
-        g.setColor(new Color(73, 75, 73));
-
-        for (int i = 0; i < coordinates.length; i+=2) {
-            g.drawArc(coordinates[i], coordinates[i+1], 700, 250, 180, -80);
-        }
+        Polygon ramp = new Polygon();
     }
 
     public void drawGround(Graphics g, int[] xPos, int[] yPos) {
+        // draws remaining shapes as the color of the ground
         g.setColor(new Color(152, 182, 142));
-
-        // int[] xPos = {0, 400, 0};
-        // int[] yPos = {600, 0, 0};
 
         Polygon ground = new Polygon(xPos, yPos, 3);
         g.fillPolygon(ground);
@@ -76,6 +71,17 @@ public class Picture extends JPanel {
 
         thickLineDrawer.setStroke(new BasicStroke(3));
         thickLineDrawer.drawLine(700, 220, 680, 240);
+    }
+
+    public void drawSun(Graphics g) {
+        // draw the sun
+        g.setColor(new Color(241, 197, 109));
+        g.fillArc(20, -50, 100, 100, 0, -180);
+
+        // draw the sun lining
+        g.setColor(new Color(255, 129, 0));
+        g.drawArc(20, -50, 100, 100, 0, -180);
+
     }
 
 
