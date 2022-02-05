@@ -1,6 +1,7 @@
 /**
  * @author Chinmay Mangalwedhe, Allen Romo, Braeden Drosche
- * @version v1.2
+ * @version v2.9
+ * @since 01/31/2022
  */
 
 import java.awt.*;
@@ -8,8 +9,9 @@ import javax.swing.*;
 
 public class Picture extends JPanel {
 
-    private final static Color groundColor = new Color(152, 182, 142);
-    private final static Color roadColor = new Color(79, 78, 78);
+    private static final Color groundColor = new Color(152, 182, 142);
+    private static final Color roadColor = new Color(79, 78, 78);
+    private static final Color signColor = new Color(77, 101, 72);
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -22,6 +24,7 @@ public class Picture extends JPanel {
         drawRoadSign(g);
         drawRamp(g);
         drawSun(g);
+        welcomeSign(g);
 
     }
 
@@ -61,11 +64,16 @@ public class Picture extends JPanel {
     }
 
     public void drawRoadSign(Graphics g) {
+
         Graphics2D thickLineDrawer = (Graphics2D) g;
+        thickLineDrawer.setStroke(new BasicStroke(3));
+
         // draws the road sign for the exit ramp
-        g.setColor(new Color(77, 101, 72));
+        g.setColor(signColor);
         g.fillRect(600, 175, 170, 75);
-        g.drawLine(675, 175, 675, 350);
+
+        g.setColor(Color.BLACK);
+        g.drawLine(675, 250, 675, 350);
 
         // exit sign
         g.setColor(Color.WHITE);
@@ -79,7 +87,6 @@ public class Picture extends JPanel {
         Polygon triangle = new Polygon(xPoints, yPoints, 3);
         g.fillPolygon(triangle);
 
-        thickLineDrawer.setStroke(new BasicStroke(3));
         thickLineDrawer.drawLine(700, 220, 680, 240);
     }
 
@@ -91,9 +98,22 @@ public class Picture extends JPanel {
         // draw the sun lining
         g.setColor(new Color(255, 129, 0));
         g.drawArc(20, -50, 100, 100, 0, -180);
-
     }
 
+    public void welcomeSign(Graphics g) {
+        // draws Welcome in English, Kannada, and Japanese
+        g.setColor(signColor);
+        g.fillRect(10, 125, 200, 150);
+
+        g.setColor(Color.BLACK);
+        g.drawLine(100, 275, 100, 350);
+
+        // set font to write text
+        g.setFont(new Font("Clearview", Font.BOLD, 10));
+        g.drawString("National Highway Authorities of India", 15, 150);
+        g.drawString("Nelamangala-Bengaluru Toll Road", 20, 170);
+
+    }
 
     public static void main(String[] args) {
         // basic frame configuration
