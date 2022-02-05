@@ -5,6 +5,11 @@
  */
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.Iterator;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class Picture extends JPanel {
@@ -17,14 +22,15 @@ public class Picture extends JPanel {
         super.paintComponent(g);
 
         // call methods
-        drawRoad(g, new int[]{0, 400, 800}, new int[]{600, 0, 600});
         drawGround(g, new int[] {0, 400, 0}, new int[] {600, 0, 0});
         drawGround(g, new int[] {800, 400, 800}, new int[] {600, 0, 0});
-        drawRoadDivider(g);
         drawRoadSign(g);
         drawRamp(g);
         drawSun(g);
         welcomeSign(g);
+        drawRoad(g, new int[]{0, 400, 800}, new int[]{600, 0, 600});
+        drawRoadDivider(g);
+        drawNames(g);
 
     }
 
@@ -109,10 +115,29 @@ public class Picture extends JPanel {
         g.drawLine(100, 275, 100, 350);
 
         // set font to write text
-        g.setFont(new Font("Clearview", Font.BOLD, 10));
-        g.drawString("National Highway Authorities of India", 15, 150);
-        g.drawString("Nelamangala-Bengaluru Toll Road", 20, 170);
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Clearview", Font.BOLD, 9));
+        g.drawString("Welcome to the United States of America!", 20, 150);
+        g.drawString("Please continue straight towards immigration", 10, 170);
+        g.drawString("Exit 12B is last stop before entering USA", 25, 190);
 
+        // draws nearby cities and directions
+        g.setFont(new Font("Clearview", Font.BOLD, 12));
+        g.drawString("New York, NY: 90mi", 60, 220);
+        g.drawString("Trenton, NJ: 270mi", 60, 240);
+        g.drawString("Houston, TX: 2,724mi", 55, 260);
+    }
+
+    public void drawNames(Graphics nameWriter) {
+        // creates new space to write them
+        nameWriter.setColor(new Color(204, 225, 177));
+        nameWriter.fillRoundRect(100, 50, 200, 70, 90, 20);
+
+        // write our names
+        nameWriter.setColor(Color.BLACK);
+        nameWriter.drawString("Chinmay Mangalwedhe - Period 6", 110, 70);
+        nameWriter.drawString("Allen Romo - Period 6", 120, 90);
+        nameWriter.drawString("Braeden Drosche - Period 6", 115, 110);
     }
 
     public static void main(String[] args) {
