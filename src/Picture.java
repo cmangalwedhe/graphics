@@ -5,11 +5,6 @@
  */
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.Iterator;
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class Picture extends JPanel {
@@ -109,10 +104,10 @@ public class Picture extends JPanel {
     public void welcomeSign(Graphics g) {
         // draws Welcome in English, Kannada, and Japanese
         g.setColor(signColor);
-        g.fillRect(10, 125, 200, 150);
+        g.fillRect(10, 125, 210, 150);
 
         g.setColor(Color.BLACK);
-        g.drawLine(100, 275, 100, 350);
+        g.drawLine(115,275, 115, 350);
 
         // set font to write text
         g.setColor(Color.WHITE);
@@ -136,8 +131,8 @@ public class Picture extends JPanel {
         // write our names
         nameWriter.setColor(Color.BLACK);
         nameWriter.drawString("Chinmay Mangalwedhe - Period 6", 110, 70);
-        nameWriter.drawString("Allen Romo - Period 6", 120, 90);
-        nameWriter.drawString("Braeden Drosche - Period 6", 115, 110);
+        nameWriter.drawString("Allen Romo - Period 6", 140, 90);
+        nameWriter.drawString("Braeden Drosche - Period 6", 120, 110);
     }
 
     public static void main(String[] args) {
